@@ -32,7 +32,7 @@ header h1 {
 #user-label {
     position: absolute;
     top: 25px;
-    left: -25px;
+    left: -45px;
 }
 #computer-label {
     position: absolute;
@@ -100,3 +100,24 @@ p {
     font-size: 24px;
 }
 
+.game--status {
+    text-align: center;
+    padding: 20px;    
+}
+
+
+button {
+    font-family: hack;
+    font-weight: bold;
+    padding: 9px 25px;
+    background-color:rgb(120, 125, 128);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-left:45%;    
+}
+
+button:hover{
+  background-color: rgb(5, 156, 202);
+}
