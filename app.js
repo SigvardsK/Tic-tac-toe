@@ -1,17 +1,14 @@
 
 // define variables
-let userScore = 0;
-let computerScore = 0;
-const userScore_span = document.getElementById('user-score');
-const computerScore_span = document.getElementById('computer-score');
+let playerOneScore = 0;
+let playerTwoScore = 0;
+const playerOneScore_span = document.getElementById('playerOne-score');
+const playerTwoScore_span = document.getElementById('playerTwo-score');
 const scoreBoard_div = document.querySelector(".score-board");
-const result_p = document.querySelector(".result > p");
-const x_div = document.getElementById("x");
-const o_div = document.getElementById("o");
 
 // state when game happens -- so that know when to end
 let gameActive = true;
-// can be user or computer
+// can be player one or player two
 let currentPlayer = "X";
 // key moment --> each game board with each cell as a variable
 let gameState = ["", "", "", "", "", "", "", "", ""]; 
@@ -68,7 +65,7 @@ function handleResultValidation() {
     }
 
     if (roundWon) {
-        statusDisplay.innerHTML = winningMessage();
+        statusDisplay.innerHTML = winningMessage(); 
         gameActive = false;
         return;
     }
