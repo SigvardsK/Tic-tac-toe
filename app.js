@@ -5,6 +5,9 @@ let playerTwoScore = 0;
 const playerOneScore_span = document.getElementById('playerOne-score');
 const playerTwoScore_span = document.getElementById('playerTwo-score');
 const scoreBoard_div = document.querySelector(".score-board");
+const playerOne_Won = 'PlayerOne_Won';
+const playerTwo_Won = 'PlayerTwo_Won';
+const announcer = document.querySelector('.game--status');
 
 // state when game happens -- so that know when to end
 let gameActive = true;
@@ -65,7 +68,7 @@ function handleResultValidation() {
     }
 
     if (roundWon) {
-        statusDisplay.innerHTML = winningMessage(); 
+        announce(currentPlayer === 'X' ? playerOne_Won : playerTwo_Won);
         gameActive = false;
         return;
     }
@@ -79,6 +82,23 @@ function handleResultValidation() {
 
     handlePlayerChange();
 }
+
+const announce = (type) => {
+    switch (type) {
+        case playerOne_Won:
+            playerOneScore++;
+            playerOneScore_span.innerHTML =playerOneScore;
+            playerTwoScore_span.innerHTML = playerTwoScore;
+            announcer.innerHTML = 'Player <span class="playerX">X</span> Won';
+            break;
+        case playerTwo_Won:
+            playerTwoScore++;
+            playerTwoScore_span.innerHTML = playerTwoScore;
+            playerOneScore_span.innerHTML =playerOneScore;
+            announcer.innerHTML = 'Player <span class="playerO">O</span> Won';
+            break;
+    }    
+};
 
 // click function in cell
 function handleCellClick(clickedCellEvent) {
